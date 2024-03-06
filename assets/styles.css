@@ -1,0 +1,65 @@
+/* Colors from a generated scheme by https://www.khroma.co/generator */
+:root {
+      --tory-blue: #0D5793;
+      --geyser: #D4E2E1;
+      --white: #fff;
+}
+
+/* This will cause the links to other sections on the page scroll smoothly instead of jump. Found this snippet in forum at https://stackoverflow.com/questions/25020582/scrolling-to-an-anchor-using-transition-css3 */
+*{
+      scroll-behavior: smooth;
+}
+/* Sets 1rem to 10px to more easily calculate using rem */
+html {
+      font-size: 62.5%;
+}
+
+/* Default text family sans-serif and brings default font size up to 17.5px */
+body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.75rem;
+}
+
+/* Make header a flexbox with items at left and right edges */
+header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem;
+      background-color: var(--tory-blue);
+      color: var(--geyser);
+}
+
+h1 {
+      font-size: 4rem;
+}
+
+.nav-list {
+      display: flex;
+      flex-wrap: wrap;
+      list-style-type: none;
+      font-size: 2rem;
+}
+
+.nav-list li {
+      text-align: right;
+      flex: 0 0 100%;
+      margin: 1rem 0;
+}
+
+.nav-list a {
+      color: var(--geyser);
+      text-decoration: none;
+      padding: .4rem;
+      border-radius: .25rem;
+      border-bottom: .2rem solid var(--geyser);
+}
+
+.nav-list a:hover {
+      background-color: var(--geyser);
+      color: var(--tory-blue);
+      font-weight: bold;
+      padding: .5rem .75rem;
+      transition: all .25s ease-in-out;
+      
+}
