@@ -2,7 +2,7 @@
 :root {
       --tory-blue: #0D5793;
       --geyser: #D4E2E1;
-      --white: #fff;
+      --almost-white: rgb(248, 252, 255);
 }
 
 /* This will cause the links to other sections on the page scroll smoothly instead of jump. Found this snippet in forum at https://stackoverflow.com/questions/25020582/scrolling-to-an-anchor-using-transition-css3 */
@@ -12,12 +12,15 @@
 /* Sets 1rem to 10px to more easily calculate using rem */
 html {
       font-size: 62.5%;
+      margin: 0;
 }
 
 /* Default text family sans-serif and brings default font size up to 17.5px */
 body {
       font-family: Arial, Helvetica, sans-serif;
       font-size: 1.75rem;
+      background-color: var(--almost-white);
+      color: var(--tory-blue);
 }
 
 /* Make header a flexbox with items at left and right edges */
@@ -28,12 +31,15 @@ header {
       padding: 2rem;
       background-color: var(--tory-blue);
       color: var(--geyser);
+      /* Extends header to edge of page */
+      margin: -8px -8px 0 -8px;
 }
 
 h1 {
-      font-size: 4rem;
+      font-size: 4.5rem;
 }
 
+/* Make nav-list a flexbox */
 .nav-list {
       display: flex;
       flex-wrap: wrap;
@@ -41,12 +47,14 @@ h1 {
       font-size: 2rem;
 }
 
+/* Align nav links to the right side and have one item per row on small screens */
 .nav-list li {
       text-align: right;
       flex: 0 0 100%;
       margin: 1rem 0;
 }
 
+/* Give nav links an offset lower border instead of underline and a small border radius for a rounded edge */
 .nav-list a {
       color: var(--geyser);
       text-decoration: none;
@@ -55,11 +63,29 @@ h1 {
       border-bottom: .2rem solid var(--geyser);
 }
 
+/* Changes behavior of links when hovered over */
 .nav-list a:hover {
+      /* Swaps text and background colors */
       background-color: var(--geyser);
       color: var(--tory-blue);
       font-weight: bold;
-      padding: .5rem .75rem;
+      /* Makes link look like a button when hovered, growing and becoming rounded with a transition */
+      padding: .5rem 1rem;
+      border-radius: 1rem;
       transition: all .25s ease-in-out;
-      
+}
+
+.section {
+      display: flex;
+      flex-wrap: wrap;
+}
+
+.section-heading {
+      flex: 0 0 100%;
+      font-size: 4rem;
+      border-bottom: 2px solid var(--tory-blue);
+}
+
+.section-content {
+      flex: 0 0 100%;
 }
