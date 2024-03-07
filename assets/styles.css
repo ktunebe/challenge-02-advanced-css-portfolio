@@ -293,7 +293,7 @@ footer {
 }
 
 /* Removes blue filter over app screenshots on touch screens - found at https://www.smashingmagazine.com/2022/03/guide-hover-pointer-media-queries/*/
-@media (pointer: none) {
+@media (pointer: coarse) {
       .app a::before {
             display: none;
           }
