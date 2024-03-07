@@ -12,31 +12,39 @@
 /* Sets 1rem to 10px to more easily calculate using rem */
 html {
       font-size: 62.5%;
-      margin: 0;
 }
 
 /* Default text family sans-serif and brings default font size up to 17.5px */
 body {
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 1.75rem;
+      font-size: 1.5rem;
       background-color: var(--almost-white);
       color: var(--tory-blue);
+      line-height: 1.5;
+      max-width: 100%;
 }
 
 /* Make header a flexbox with items at left and right edges */
 header {
+      min-height: 20rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 2rem;
+      padding: 1.5rem 1rem 0 1.5rem;
       background-color: var(--tory-blue);
       color: var(--geyser);
-      /* Extends header to edge of page */
-      margin: -8px -8px 0 -8px;
 }
 
 h1 {
-      font-size: 4.5rem;
+      font-size: 4rem;
+}
+
+main {
+      padding-left: 1rem;
+}
+
+p {
+      margin-bottom: 2rem;
 }
 
 /* Make nav-list a flexbox */
@@ -44,7 +52,7 @@ h1 {
       display: flex;
       flex-wrap: wrap;
       list-style-type: none;
-      font-size: 2rem;
+      padding-bottom: 1rem;
 }
 
 /* Align nav links to the right side and have one item per row on small screens */
@@ -65,22 +73,52 @@ h1 {
 
 /* Changes behavior of links when hovered over */
 .nav-list a:hover {
-      /* Swaps text and background colors */
+      /* Makes link look like a button when hovered with a transition. Swaps text and background colors */
       background-color: var(--geyser);
       color: var(--tory-blue);
       font-weight: bold;
-      /* Makes link look like a button when hovered, growing and becoming rounded with a transition */
-      padding: .5rem 1rem;
       border-radius: 1rem;
       transition: all .25s ease-in-out;
 }
 
+/* Styles div between header and body */
+.sub-header {
+      /* Make this a flexbox with picture on left and subtitle on right */
+      display: flex;
+      justify-content: space-between;
+      /* Fill window left to right and specify height */
+      height: 20rem;
+      background-image: linear-gradient(
+            var(--geyser) 0%,
+            var(--tory-blue) 100%
+          );
+}
+
+/* Fill height of subheader with photo */
+.sub-header img {
+      height: inherit;
+}
+
+/* Style the subtitle */
+.sub-header h2 {
+      align-self: flex-end;
+      margin: 2rem;
+      background-color: var(--almost-white);
+      padding: 1rem;
+      border-radius: 0 1.5rem;
+      text-align: center;
+}
+
+/* Make each section a flexbox */
 .section {
+      margin-bottom: 3rem;
       display: flex;
       flex-wrap: wrap;
 }
 
+/* On small screens, headings will be above content */
 .section-heading {
+      margin: 2rem auto;
       flex: 0 0 100%;
       font-size: 4rem;
       border-bottom: 2px solid var(--tory-blue);
@@ -88,4 +126,102 @@ h1 {
 
 .section-content {
       flex: 0 0 100%;
+}
+
+/* Style the app screenshot/link section as a flexbox */
+.app-images {
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem 2rem;
+}
+
+/* The first screenshot will be twice the size as the others */
+.app:first-child {
+      flex: 1 1 100%;
+      max-width: 100%
+}
+
+/* Remaining screenshots will be in two columns */
+.app {
+      flex: 1 1 40%;
+      max-width: 50%;
+      padding: .3rem;
+      border: .4rem solid var(--tory-blue);
+      /* Relative position for ::after tab to be added */
+      position: relative;
+}
+
+/* Styles tab at top left of each image */
+.app a::after {
+      position: absolute;
+      /* top left border of tab will coincide with top left border of image box */
+      left: -0.4rem;
+      top: -0.4rem;
+      padding: .5rem;
+      background-color: var(--geyser);
+      color: var(--tory-blue);
+      border: .3rem solid var(--tory-blue);
+}
+
+/* Adds content to image tabs with brief description. Can be pseudo-element because alt image text contains same description. */
+#challenge-01::after {
+      content: "Bootcamp Challenge 01";
+}
+
+/* Allows images to flex size up to original size. Made all images same aspect ratio and size. */
+.app img {
+      max-width: 100%;
+}
+
+/* Style resume section */
+#resume p {
+      padding-top: 2rem;
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+}
+
+/* Add hammer emoji before and after resume statement */
+#resume p::before {
+      content: "\01F528  ";
+}
+
+#resume p::after {
+      content: "  \01F528";
+}
+
+/* Style contact info list and make the list a flexbox */
+.contact-info {
+      list-style-type: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding-inline-start: 0;
+}
+
+/* On small screens, contact info list will be a column */
+.contact-info li {
+      flex: 0 0 100%;
+      margin: 1rem;
+}
+
+/* Style contact links */
+.contact-info a {
+      color: var(--tory-blue);
+      font-weight: bold;
+      text-decoration: none;
+      padding: .5rem;
+      margin: .5rem;
+      border-radius: .25rem;
+      border-bottom: 2px solid var(--tory-blue);
+}
+
+
+footer {
+      font-size: 1.5rem;
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: var(--tory-blue);
+      color: var(--geyser);
 }
