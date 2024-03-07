@@ -12,7 +12,7 @@ N/A
 
 This page is responsive and will change orientation as screen size changes. The screenshot of each project is a link to that project. 
 
-Link to deployed application: 
+Link to deployed application: https://ktunebe.github.io/challenge-02-advanced-css-portfolio/
 
 ![Screenshot of my Portfolio Page](assets/images/portfolio-page.png)
 
