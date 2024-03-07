@@ -291,3 +291,10 @@ footer {
             margin: 0 auto;
       }
 }
+
+/* Removes blue filter over app screenshots on touch screens - found at https://ferie.medium.com/detect-a-touch-device-with-only-css-9f8e30fa1134 */
+@media (hover: none) {
+      .app a::before {
+            display: none;
+          }
+}
