@@ -8,6 +8,8 @@
 /* This will cause the links to other sections on the page scroll smoothly instead of jump. Found this snippet in forum at https://stackoverflow.com/questions/25020582/scrolling-to-an-anchor-using-transition-css3 */
 *{
       scroll-behavior: smooth;
+      /* All transitions when page is resized will look smoother */
+      transition: all 250ms linear;
 }
 /* Sets 1rem to 10px to more easily calculate using rem */
 html {
@@ -24,19 +26,9 @@ body {
       max-width: 100%;
 }
 
-/* Make header a flexbox with items at left and right edges */
-header {
-      min-height: 20rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 1rem 0 1.5rem;
-      background-color: var(--tory-blue);
-      color: var(--geyser);
-}
-
 h1 {
       font-size: 4rem;
+      margin-block-start: 0;
 }
 
 main {
@@ -47,30 +39,46 @@ p {
       margin-bottom: 2rem;
 }
 
+/* ---------------------------HEADER---------------------------------- */
+/* Make header a flexbox with items at left and right edges */
+header {
+      min-height: 10rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 1.5rem;
+      background-color: var(--tory-blue);
+      color: var(--geyser);
+}
+header h1,
+header nav {
+      flex: 1;
+}
+
+/* ---------------------------NAV BAR---------------------------------- */
 /* Make nav-list a flexbox */
 .nav-list {
       display: flex;
-      flex-wrap: wrap;
+      flex-flow: row wrap;
       list-style-type: none;
       padding-bottom: 1rem;
 }
-
 /* Align nav links to the right side and have one item per row on small screens */
 .nav-list li {
       text-align: right;
       flex: 0 0 100%;
       margin: 1rem 0;
+      
 }
-
 /* Give nav links an offset lower border instead of underline and a small border radius for a rounded edge */
 .nav-list a {
       color: var(--geyser);
+      display: inline-block;
       text-decoration: none;
       padding: .4rem;
       border-radius: .25rem;
       border-bottom: .2rem solid var(--geyser);
 }
-
 /* Changes behavior of links when hovered over */
 .nav-list a:hover {
       /* Makes link look like a button when hovered with a transition. Swaps text and background colors */
@@ -81,24 +89,22 @@ p {
       transition: all .25s ease-in-out;
 }
 
+/* ---------------------------SUB HEADER--------------------------------- */
 /* Styles div between header and body */
 .sub-header {
       /* Make this a flexbox with picture on left and subtitle on right */
       display: flex;
       justify-content: space-between;
-      /* Fill window left to right and specify height */
       height: 20rem;
       background-image: linear-gradient(
             var(--geyser) 0%,
             var(--tory-blue) 100%
           );
 }
-
 /* Fill height of subheader with photo */
 .sub-header img {
       height: inherit;
 }
-
 /* Style the subtitle */
 .sub-header h2 {
       align-self: flex-end;
@@ -109,13 +115,13 @@ p {
       text-align: center;
 }
 
+/* ---------------------------GENERIC SECTIONS-------------------------------- */
 /* Make each section a flexbox */
 .section {
       margin-bottom: 3rem;
       display: flex;
       flex-wrap: wrap;
 }
-
 /* On small screens, headings will be above content */
 .section-heading {
       margin: 2rem auto;
@@ -123,11 +129,11 @@ p {
       font-size: 4rem;
       border-bottom: 2px solid var(--tory-blue);
 }
-
 .section-content {
       flex: 0 0 100%;
 }
 
+/* ---------------------------WORK SECTION---------------------------------- */
 /* Style the app screenshot/link section as a flexbox */
 .app-images {
       padding: 2rem;
@@ -135,13 +141,11 @@ p {
       flex-wrap: wrap;
       gap: 2rem 2rem;
 }
-
 /* The first screenshot will be twice the size as the others */
 .app:first-child {
       flex: 1 1 100%;
       max-width: 100%
 }
-
 /* Remaining screenshots will be in two columns */
 .app {
       flex: 1 1 40%;
@@ -151,7 +155,20 @@ p {
       /* Relative position for ::after tab to be added */
       position: relative;
 }
-
+/* Puts blue filter over app pictures that are not hovered over */
+.app a::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(15, 145, 221, 0.3);
+    }
+/* Removes filter on hover */
+.app:hover a::before {
+      display: none;
+    }
 /* Styles tab at top left of each image */
 .app a::after {
       position: absolute;
@@ -163,17 +180,28 @@ p {
       color: var(--tory-blue);
       border: .3rem solid var(--tory-blue);
 }
-
 /* Adds content to image tabs with brief description. Can be pseudo-element because alt image text contains same description. */
 #challenge-01::after {
       content: "Bootcamp Challenge 01";
 }
-
+#css-snippets::after {
+      content: "CSS Snippets Page";
+}
+#landing-page::after {
+      content: "Landing Page Project";
+}
+#placeholder-1::after {
+      content: "Placeholder 1";
+}
+#placeholder-2::after {
+      content: "Placeholder 2";
+}
 /* Allows images to flex size up to original size. Made all images same aspect ratio and size. */
 .app img {
       max-width: 100%;
 }
 
+/* ----------------------------RESUME SECTION--------------------------------- */
 /* Style resume section */
 #resume p {
       padding-top: 2rem;
@@ -181,16 +209,15 @@ p {
       font-weight: bold;
       text-align: center;
 }
-
 /* Add hammer emoji before and after resume statement */
 #resume p::before {
       content: "\01F528  ";
 }
-
 #resume p::after {
       content: "  \01F528";
 }
 
+/* ---------------------------CONTACT INFO SECTION-------------------------------- */
 /* Style contact info list and make the list a flexbox */
 .contact-info {
       list-style-type: none;
@@ -199,13 +226,11 @@ p {
       justify-content: space-around;
       padding-inline-start: 0;
 }
-
 /* On small screens, contact info list will be a column */
 .contact-info li {
       flex: 0 0 100%;
       margin: 1rem;
 }
-
 /* Style contact links */
 .contact-info a {
       color: var(--tory-blue);
@@ -217,11 +242,52 @@ p {
       border-bottom: 2px solid var(--tory-blue);
 }
 
-
+/* ---------------------------FOOTER-------------------------------- */
 footer {
       font-size: 1.5rem;
       text-align: center;
       padding: 2rem 1rem;
       background-color: var(--tory-blue);
       color: var(--geyser);
+}
+
+/* ---------------------------MEDIA QUERIES-------------------------------- */
+/* ------Media query for medium screens-------- */
+@media (min-width: 768px) {  
+      /* Flex to horizontal list */
+      .nav-list li {
+            flex: auto;       
+      }
+
+      .section {
+            gap: 2rem;
+      }
+      /* Flex to two section columns, heading taking up 1/4 of the space and content 3/4. */
+      .section-heading {
+            flex: 1;
+            /* Move border on heading from bottom to right as transitions from one column to two */
+            border-right: 2px solid var(--tory-blue);
+            border-bottom: none;
+            text-align: right;
+            padding-right: 1.5rem;
+      }
+      .section-content {
+            flex: 3;
+            padding: 2rem;
+            align-self: center; 
+      }
+
+      /* Flex to horizontal list */
+      .contact-info li {
+            flex: auto;
+      }
+}
+/* ---------Media query for large screens--------- */
+@media (min-width: 992px) {
+      /* Set max width on page for very wide screens, centers page in viewport if it is larger than 1600px, make font slightly larger on bigger screens. */
+      body {
+            font-size: 2rem;
+            max-width: 1600px;
+            margin: 0 auto;
+      }
 }
