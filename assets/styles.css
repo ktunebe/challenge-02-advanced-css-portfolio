@@ -1,7 +1,7 @@
 /* Colors from a generated scheme by https://www.khroma.co/generator */
 :root {
-      --tory-blue: #0D5793;
-      --geyser: #D4E2E1;
+      --main-color: #0D5793;
+      --accent-color: #D4E2E1;
       --almost-white: rgb(248, 252, 255);
 }
 
@@ -21,7 +21,7 @@ body {
       font-family: Arial, Helvetica, sans-serif;
       font-size: 1.5rem;
       background-color: var(--almost-white);
-      color: var(--tory-blue);
+      color: var(--main-color);
       line-height: 1.5;
       max-width: 100%;
 }
@@ -47,8 +47,8 @@ header {
       justify-content: space-between;
       align-items: center;
       padding: 0 1.5rem;
-      background-color: var(--tory-blue);
-      color: var(--geyser);
+      background-color: var(--main-color);
+      color: var(--accent-color);
 }
 header h1,
 header nav {
@@ -72,18 +72,18 @@ header nav {
 }
 /* Give nav links an offset lower border instead of underline and a small border radius for a rounded edge */
 .nav-list a {
-      color: var(--geyser);
+      color: var(--accent-color);
       display: inline-block;
       text-decoration: none;
       padding: .4rem;
       border-radius: .25rem;
-      border-bottom: .2rem solid var(--geyser);
+      border-bottom: .2rem solid var(--accent-color);
 }
 /* Changes behavior of links when hovered over */
 .nav-list a:hover {
       /* Makes link look like a button when hovered with a transition. Swaps text and background colors */
-      background-color: var(--geyser);
-      color: var(--tory-blue);
+      background-color: var(--accent-color);
+      color: var(--main-color);
       font-weight: bold;
       border-radius: 1rem;
       transition: all .25s ease-in-out;
@@ -97,8 +97,8 @@ header nav {
       justify-content: space-between;
       height: 20rem;
       background-image: linear-gradient(
-            var(--geyser) 0%,
-            var(--tory-blue) 100%
+            var(--accent-color) 0%,
+            var(--main-color) 100%
           );
 }
 /* Fill height of subheader with photo */
@@ -127,7 +127,7 @@ header nav {
       margin: 2rem auto;
       flex: 0 0 100%;
       font-size: 4rem;
-      border-bottom: 2px solid var(--tory-blue);
+      border-bottom: 2px solid var(--main-color);
 }
 .section-content {
       flex: 0 0 100%;
@@ -151,7 +151,7 @@ header nav {
       flex: 1 1 40%;
       max-width: 50%;
       padding: .3rem;
-      border: .4rem solid var(--tory-blue);
+      border: .4rem solid var(--main-color);
       /* Relative position for ::after tab to be added */
       position: relative;
 }
@@ -176,9 +176,9 @@ header nav {
       left: -0.4rem;
       top: -0.4rem;
       padding: .5rem;
-      background-color: var(--geyser);
-      color: var(--tory-blue);
-      border: .3rem solid var(--tory-blue);
+      background-color: var(--accent-color);
+      color: var(--main-color);
+      border: .3rem solid var(--main-color);
 }
 /* Adds content to image tabs with brief description. Can be pseudo-element because alt image text contains same description. */
 #challenge-01::after {
@@ -233,13 +233,13 @@ header nav {
 }
 /* Style contact links */
 .contact-info a {
-      color: var(--tory-blue);
+      color: var(--main-color);
       font-weight: bold;
       text-decoration: none;
       padding: .5rem;
       margin: .5rem;
       border-radius: .25rem;
-      border-bottom: 2px solid var(--tory-blue);
+      border-bottom: 2px solid var(--main-color);
 }
 
 /* ---------------------------FOOTER-------------------------------- */
@@ -247,8 +247,8 @@ footer {
       font-size: 1.5rem;
       text-align: center;
       padding: 2rem 1rem;
-      background-color: var(--tory-blue);
-      color: var(--geyser);
+      background-color: var(--main-color);
+      color: var(--accent-color);
 }
 
 /* ---------------------------MEDIA QUERIES-------------------------------- */
@@ -266,7 +266,7 @@ footer {
       .section-heading {
             flex: 1;
             /* Move border on heading from bottom to right as transitions from one column to two */
-            border-right: 2px solid var(--tory-blue);
+            border-right: 2px solid var(--main-color);
             border-bottom: none;
             text-align: right;
             padding-right: 1.5rem;
